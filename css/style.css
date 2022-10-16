@@ -1,0 +1,377 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Oswald', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
+}
+
+:root {
+  --first-color-bg: #edefde;
+  --second-color-bg: #def4f0;
+  --border-color: #41bbd3;
+  --main-color: #2465d6;
+  --second-color: #8bdee8;
+  --third-color: #def4f0;
+  /* https://www.colourlovers.com/palette/4844242/Blues */
+  font-size: 20px;
+}
+
+body {
+  background-color: var(--first-color-bg);
+}
+
+/*properties for modal window */
+.modal-pop-up {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  right: 50%;
+  left: 50%;
+  backdrop-filter: blur(5px);
+  z-index: 12;
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.modal-pop-up .menu-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: none;
+  height: 100%;
+}
+
+.modal-pop-up .menu-modal input {
+  width: 300px;
+  padding: 20px;
+  height: 35px;
+  font-size: 1.2rem;
+  border: 3px solid var(--main-color);
+  border-radius: 10px;
+  background-color: var(--second-color-bg);
+}
+
+/* .active {
+  transform: scale(1);
+} */
+
+.modal-pop-up .menu-modal input:focus-visible {
+  outline: none;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.hidden {
+  transform: scale(0);
+}
+
+/* main aplication */
+
+.container {
+  width: 40%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+h1.title {
+  font-family: 'Comforter', cursive;
+  text-align: center;
+  font-size: 5rem;
+  color: #2465d6;
+  text-shadow: 2px 2px 3px #000;
+}
+
+h2 {
+  font-size: 1.7rem;
+  color: #000;
+}
+
+h3 {
+  font-size: 0.9rem;
+  color: #000;
+}
+
+h4 {
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: #000;
+}
+
+li {
+  list-style-type: none;
+}
+
+.main-menu {
+  background-color: var(--second-color);
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 51px;
+}
+
+.menu-category {
+  color: var(--main-color);
+  margin: auto 10px auto 10px;
+}
+
+i.fa-solid.fa-bars {
+  font-size: 2rem;
+  transition: color 0.3s;
+}
+
+.menu-category:hover {
+  color: #1a51b0;
+  cursor: pointer;
+}
+
+.menu-category:hover > ul > li > .menu-pulldown {
+  display: inline-block;
+}
+
+.menu-pulldown {
+  display: none;
+  background-color: var(--second-color);
+  position: absolute;
+  /* top: 51px; */
+  /* top value work in progress */
+  top: 41px;
+  left: 0;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.items-pulldown > li {
+  margin: 5px 10px 5px 10px;
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.5);
+}
+
+.items-pulldown > li:last-child {
+  border-bottom: none;
+}
+
+.items-pulldown > li > h3:hover {
+  color: var(--third-color);
+  cursor: pointer;
+}
+
+.count-of-tasks-done {
+  margin-left: 10px;
+}
+
+.menu-options {
+  color: var(--main-color);
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.menu-options:hover {
+  color: #1a51b0;
+  cursor: pointer;
+}
+
+.fa-ellipsis-vertical {
+  font-size: 2rem;
+  transition: color 0.3s;
+  margin: auto 10px auto 10px;
+}
+
+.category-pulldown {
+  display: none;
+  background-color: var(--second-color);
+  position: absolute;
+  /* top: 51px; */
+  /* top value work in progress */
+  top: 45px;
+  right: 0px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.menu-options:hover > .category-pulldown {
+  display: block;
+}
+
+.list-of-tasks {
+  margin-top: 20px;
+  /* overflow:scroll; */
+  min-height: 200px;
+  border: 4px solid var(--main-color);
+  border-radius: 10px;
+  background-color: var(--second-color-bg);
+}
+
+.task {
+  min-height: 49px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.task:last-child {
+  border-bottom: none;
+}
+
+/* .is-completed {
+  height: 20px;
+  width: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+} */
+
+.task input {
+  height: 20px;
+  width: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.task .checked {
+  text-decoration: line-through 3px;
+}
+/* .task input:hover {
+  color: #ddd;
+} */
+
+.name-of-task {
+  margin-right: 10px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.settings {
+  margin-left: auto;
+  margin-right: 15px;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.settings > i:first-child {
+  color: #3261c5;
+  font-size: 1.2rem;
+}
+
+.settings > i:first-child:hover {
+  color: #1043b3;
+  cursor: pointer;
+}
+
+.settings .task-menu {
+  background-color: var(--second-color-bg);
+  position: absolute;
+  padding: 5px 0px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  right: -5px;
+  /* bottom: -65px; */
+  top: 30px;
+  z-index: 2;
+  transform: scale(0);
+  transform-origin: top right;
+  transition: transform 0.2s ease;
+}
+
+.settings:hover .task-menu {
+  transform: scale(1);
+}
+
+.settings .task-menu li:hover {
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+.task-menu li {
+  height: 25px;
+  font-size: 16px;
+  min-width: 80px;
+  margin-bottom: 2px;
+  justify-content: flex-start;
+}
+
+.task-menu li i {
+  padding-right: 8px;
+  padding-left: 5px;
+}
+
+.main-task-menu {
+  background-color: var(--second-color);
+  border-radius: 10px;
+  margin-top: 10px;
+  min-height: 40px;
+  padding: 5px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+.new-task {
+  margin-left: 10px;
+  width: 100%;
+  margin-right: 10px;
+}
+
+.input-new-task {
+  font-size: 100%;
+  padding: 3px;
+  padding-left: 10px;
+  border-radius: 10px;
+  border-style: none;
+  width: 100%;
+  outline: none;
+}
+
+.input-new-task.editing {
+  background-color: rgb(193, 233, 101);
+  border: #000 solid 2px;
+}
+.input-new-task:hover {
+  outline: #1043b3 solid 1px;
+}
+
+.input-new-task:focus {
+  outline: #1043b3 solid 1px;
+}
+
+.input-new-task::placeholder {
+  color: #ccc;
+}
+
+button.btn-add-task {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: 10px;
+  padding: 8px;
+  background-color: #3261c5;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button.btn-add-task:hover {
+  background-color: #1043b3;
+}
